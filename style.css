@@ -18,7 +18,7 @@ body {
   position: fixed;
   inset: 0;
   background: transparent;
-  z-index: -1;   /* sabke peeche rahe */
+  z-index: -1;
 }
 
 /* ===== HEADER ===== */
@@ -97,14 +97,16 @@ header {
   color: #7f5cff;
 }
 
-/* ===== HERO IMAGE ===== */
+/* ===== HERO IMAGE (PHOTO FIXED) ===== */
 .hero-img {
   width: 260px;
   height: 260px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid #00f7ff;
-  box-shadow: 0 0 40px #00f7ff;
+  box-shadow:
+    0 0 20px #00f7ff,
+    0 0 60px #00f7ff66;
   flex-shrink: 0;
 }
 
@@ -112,7 +114,7 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;   /* ✅ FULL FACE FIX */
   display: block;
 }
 
@@ -263,6 +265,3 @@ header {
     padding: 40px 20px;
   }
 }
-
-
-
