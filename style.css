@@ -24,7 +24,6 @@ body {
 /* ===== HEADER ===== */
 header {
   padding: 20px 60px;
-  background: transparent;
 }
 
 .logo {
@@ -44,7 +43,7 @@ header {
   padding: 60px;
   gap: 40px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   position: relative;
 }
 
@@ -58,7 +57,6 @@ header {
 
 .hero-text h2 {
   font-size: 48px;
-  line-height: 1.2;
 }
 
 .hero-text h2 span {
@@ -84,6 +82,7 @@ header {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
 }
 
 .neon {
@@ -92,12 +91,21 @@ header {
   box-shadow: 0 0 20px #00f7ff;
 }
 
+.neon:hover {
+  transform: scale(1.05);
+}
+
 .outline {
   border: 2px solid #7f5cff;
   color: #7f5cff;
 }
 
-/* ===== HERO IMAGE (PHOTO FIXED) ===== */
+.outline:hover {
+  background: #7f5cff;
+  color: #fff;
+}
+
+/* ===== HERO IMAGE ===== */
 .hero-img {
   width: 260px;
   height: 260px;
@@ -107,15 +115,12 @@ header {
   box-shadow:
     0 0 20px #00f7ff,
     0 0 60px #00f7ff66;
-  flex-shrink: 0;
 }
 
 .hero-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;   /* ✅ FULL FACE FIX */
-  display: block;
 }
 
 /* ===== SECTION TITLES ===== */
@@ -144,9 +149,7 @@ header {
   text-align: center;
   border-radius: 15px;
   border: 1px solid #00f7ff44;
-  color: #ffffff;
-  font-size: 18px;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .skill-card:hover {
@@ -159,25 +162,42 @@ header {
   padding: 60px;
 }
 
+/* 🔥 GRID ADD KIYA (modern layout) */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
 .project-card {
-  background: #0f0f1f;
-  padding: 25px;
+  background: rgba(15, 15, 31, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 20px;
   border-radius: 15px;
-  margin-bottom: 25px;
   border-left: 4px solid #7f5cff;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .project-card h3 {
-  margin-bottom: 10px;
   color: #7f5cff;
+  margin-bottom: 10px;
 }
 
 .project-card:hover {
-  box-shadow: 0 0 30px #7f5cff;
-  transform: scale(1.02);
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px #7f5cff;
 }
 
+/* 🔥 iframe FIX (PPT + Drive) */
+.project-card iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none;
+}
+
+/* 🔥 LINK STYLE */
 .project-link {
   display: inline-block;
   margin-top: 12px;
@@ -195,24 +215,14 @@ header {
   text-align: center;
 }
 
-.contact p {
-  margin: 10px 0;
-  opacity: 0.9;
-}
-
-.socials {
-  margin-top: 20px;
-}
-
 .socials a {
   margin: 10px;
-  text-decoration: none;
   color: #00f7ff;
   border: 1px solid #00f7ff;
   padding: 10px 22px;
   border-radius: 30px;
   display: inline-block;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .socials a:hover {
@@ -226,7 +236,6 @@ header {
   text-align: center;
   padding: 20px;
   opacity: 0.6;
-  font-size: 14px;
 }
 
 /* ===== SCROLL ANIMATION ===== */
@@ -234,11 +243,10 @@ header {
 .project-card {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: 0.6s;
 }
 
-.skill-card.show,
-.project-card.show {
+.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -250,18 +258,7 @@ header {
     text-align: center;
   }
 
-  .hero-img {
-    margin-top: 30px;
-  }
-
-  header {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .skills,
-  .projects,
-  .contact {
-    padding: 40px 20px;
+  .projects {
+    grid-template-columns: 1fr;
   }
 }
